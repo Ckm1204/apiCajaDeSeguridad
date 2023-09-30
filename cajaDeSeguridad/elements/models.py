@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class MonthYearField(models.CharField):
     def __init__(self, *args, **kwargs):
-        kwargs['max_length'] = 7  # MM/YYYY has a length of 7
+        kwargs['max_length'] = 5  # MM/YYYY has a length of 7
         super().__init__(*args, **kwargs)
 
     def from_db_value(self, value, expression, connection):
