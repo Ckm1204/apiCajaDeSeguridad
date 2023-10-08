@@ -1,5 +1,8 @@
 from rest_framework import routers
 from .api import SecretViewSet, IdentificationViewSet, loginKeyViewSet, cardViewSet
+from .views import CardApiView
+from django.urls import include, path
+
 
 router = routers.DefaultRouter()
 
@@ -8,4 +11,7 @@ router.register('api/identification', IdentificationViewSet, basename='identific
 router.register('api/loginKey', loginKeyViewSet, basename='loginKeys')
 router.register('api/card', cardViewSet, basename='cards')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('', CardApiView.as_view()),
+    path('edit/<int:pkid>/', CardApiView.as_view())
+]

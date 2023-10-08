@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from elements import urls as elements_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('elements.urls') )
+    path('caja/',include(elements_urls))
 ]
